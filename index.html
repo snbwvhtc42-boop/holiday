@@ -983,6 +983,7 @@
   </style>
 </head>
 <body>
+<body>
 
   <!-- Top Sticky Bar -->
   <header>
@@ -993,9 +994,9 @@
       </div>
 
       <div class="header-controls">
-        <button class="cloud-pill" id="cloudStatusBtn" onclick="pullFromCloud(true)" title="点击立即从云端刷新最新内容">
+        <button class="cloud-pill" id="cloudStatusBtn" onclick="pullFromCloud(true)" title="点击刷新云端最新内容">
           <span class="cloud-dot" id="cloudDot"></span>
-          <span id="cloudStatusText">云端实时互通中</span>
+          <span id="cloudStatusText">云端实时同步</span>
         </button>
 
         <button class="admin-pill" id="adminStatusBtn" onclick="openAdminModal('unlock')">
@@ -1003,7 +1004,7 @@
         </button>
 
         <div class="progress-wrap">
-          <span>完成进度 <strong id="progressText">0%</strong></span>
+          <span>进度 <strong id="progressText">0%</strong></span>
           <div class="progress-bar-bg">
             <div class="progress-bar-fill" id="progressBar"></div>
           </div>
@@ -1018,34 +1019,34 @@
       <div class="hero-top">
         <div>
           <h2>天生绝「配」，「礼」想生活</h2>
-          <p>无需死记硬背参数。通过【实物体验 + 顾客画像配对 + 灵感墙云端共创】，把 5 款热门配件变成顾客最想送出的节日好礼，所有同事在不同设备填写的灵感均支持云端实时互通。</p>
+          <p>不背参数，用生活场景聊配件。大家填写的灵感会实时同步到灵感墙。</p>
         </div>
         <div class="user-input-box">
-          <label for="trainerName">你的名字/昵称：</label>
-          <input type="text" id="trainerName" placeholder="请填写你的名字或昵称" oninput="saveParticipantName()" />
+          <label for="trainerName">你的名字：</label>
+          <input type="text" id="trainerName" placeholder="输入名字或昵称" oninput="saveParticipantName()" />
         </div>
       </div>
 
       <div class="agenda-grid">
         <div class="agenda-card active" onclick="switchTab(0)">
-          <div class="agenda-stage">第 1 阶段</div>
-          <div class="agenda-title">方案二：实物体验 + 3步思考卡</div>
-          <div class="agenda-desc">上手试戴触摸 5 款配件，换位思考真实生活画面与一句话卖点</div>
+          <div class="agenda-stage">第 1 步</div>
+          <div class="agenda-title">实物体验与思考</div>
+          <div class="agenda-desc">试一试 5 款配件，想送礼画面与开口话术</div>
         </div>
         <div class="agenda-card" onclick="switchTab(1)">
-          <div class="agenda-stage">第 2 阶段</div>
-          <div class="agenda-title">方案一：顾客送礼画像配对</div>
-          <div class="agenda-desc">拆开 6 个典型顾客送礼难题盲盒，匹配最佳配件组合与破冰提问</div>
+          <div class="agenda-stage">第 2 步</div>
+          <div class="agenda-title">顾客场景配对</div>
+          <div class="agenda-desc">6 个常见送礼场景，选配件、写推荐语</div>
         </div>
         <div class="agenda-card" onclick="switchTab(2)">
-          <div class="agenda-stage">第 3 阶段</div>
-          <div class="agenda-title">团队灵感便利贴墙（云端互通）</div>
-          <div class="agenda-desc">跨设备实时查看其他同事留下的推荐角度，贴上你的话术并互相点赞</div>
+          <div class="agenda-stage">第 3 步</div>
+          <div class="agenda-title">团队灵感墙</div>
+          <div class="agenda-desc">实时查看同事分享的灵感，互相点赞</div>
         </div>
         <div class="agenda-card" onclick="switchTab(3)">
-          <div class="agenda-stage">第 4 阶段</div>
-          <div class="agenda-title">实战问答抽卡 & 培训总结</div>
-          <div class="agenda-desc">随机抽卡应对顾客犹豫点，查看个人汇总表（管理员可导出全员CSV）</div>
+          <div class="agenda-stage">第 4 步</div>
+          <div class="agenda-title">常见问答与汇总</div>
+          <div class="agenda-desc">抽卡练回答思路，查看个人汇总表</div>
         </div>
       </div>
     </div>
@@ -1053,27 +1054,27 @@
     <!-- Navigation Tabs -->
     <div class="nav-tabs">
       <button class="tab-btn active" onclick="switchTab(0)">
-        1. 实物体验与3步思考卡 <span class="tab-badge" id="badgeMod1">0/5</span>
+        1. 体验与思考 <span class="tab-badge" id="badgeMod1">0/5</span>
       </button>
       <button class="tab-btn" onclick="switchTab(1)">
-        2. 顾客画像配对盲盒 <span class="tab-badge" id="badgeMod2">0/6</span>
+        2. 场景配对 <span class="tab-badge" id="badgeMod2">0/6</span>
       </button>
       <button class="tab-btn" onclick="switchTab(2)">
-        3. 灵感便利贴墙 <span class="tab-badge" id="badgeMod3">0条</span>
+        3. 团队灵感墙 <span class="tab-badge" id="badgeMod3">0条</span>
       </button>
       <button class="tab-btn" onclick="switchTab(3)">
-        4. 实战抽卡与总结 <span class="tab-badge">汇总</span>
+        4. 常见问答与汇总 <span class="tab-badge">汇总</span>
       </button>
     </div>
 
-    <!-- ================= MODULE 1: 实物体验 + 3步思考卡 (方案二) ================= -->
+    <!-- ================= MODULE 1: 体验与思考 ================= -->
     <section class="module-section active" id="mod0">
       <div class="section-header">
         <div>
-          <h3>模块一：实物上手体验 + 3步思考卡</h3>
-          <p>请依次点击下方 5 款配件，结合手边的样品或日常体验，完成【上手试、想场景、留灵感】三步打卡</p>
+          <h3>模块一：配件体验与思考</h3>
+          <p>依次点击下方 5 款配件，完成【试一试、想画面、写话术】三步打卡</p>
         </div>
-        <span class="goal-pill">核心目标：把参数转化为真实生活画面</span>
+        <span class="goal-pill">目标：把参数变成生活画面</span>
       </div>
 
       <div class="product-selector" id="productSelector"></div>
@@ -1082,38 +1083,38 @@
       <input type="file" id="hiddenImgInput" accept="image/*" style="display:none" onchange="handleProductImageUpload(event)" />
     </section>
 
-    <!-- ================= MODULE 2: 顾客画像配对挑战 (方案一) ================= -->
+    <!-- ================= MODULE 2: 场景配对 ================= -->
     <section class="module-section" id="mod1">
       <div class="section-header">
         <div>
-          <h3>模块二：顾客送礼画像配对挑战</h3>
-          <p>礼品季顾客往往带着预算或模糊的对象来逛店。针对以下 6 个高频场景，选出你会主推或顺带搭配的配件，并写下第一句破冰话术</p>
+          <h3>模块二：顾客送礼场景配对</h3>
+          <p>针对 6 个常见送礼场景，选出合适配件，写下你的第一句推荐话术</p>
         </div>
-        <span class="goal-pill">核心目标：看到顾客需求立刻联想配件</span>
+        <span class="goal-pill">目标：听需求立刻想到配件</span>
       </div>
 
       <div class="persona-grid" id="personaGrid"></div>
     </section>
 
-    <!-- ================= MODULE 3: 灵感便利贴墙 ================= -->
+    <!-- ================= MODULE 3: 团队灵感墙 ================= -->
     <section class="module-section" id="mod2">
       <div class="section-header">
         <div>
-          <h3>模块三：灵感便利贴墙（跨设备实时云端同步）</h3>
-          <p>所有同事在不同设备上保存的思考卡、配对理由和直接发布的便利贴都会实时汇集到这里，可互相查看与点赞启发</p>
+          <h3>模块三：团队灵感墙（实时同步）</h3>
+          <p>大家保存的思考卡和配对话术都会汇总到这里，欢迎互相查看与点赞</p>
         </div>
         <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
-          <button class="btn-outline" style="padding:6px 14px;font-size:13px;" onclick="pullFromCloud(true)">🔄 刷新云端灵感</button>
-          <span class="goal-pill">核心目标：实时共创，拓宽推荐角度</span>
+          <button class="btn-outline" style="padding:6px 14px;font-size:13px;" onclick="pullFromCloud(true)">🔄 刷新灵感</button>
+          <span class="goal-pill">目标：互相启发，拓宽思路</span>
         </div>
       </div>
 
       <div class="new-note-panel">
-        <h4 style="margin-bottom: 12px;">📌 贴一张新的灵感便利贴（全员可见）</h4>
+        <h4 style="margin-bottom: 12px;">📌 贴一张新便利贴（全员可见）</h4>
         <div class="new-note-grid">
           <div>
-            <label style="font-size:12px;font-weight:600;">分享同事名字/昵称</label>
-            <input type="text" id="newNoteAuthor" class="form-control" placeholder="请填写你的名字或昵称" oninput="syncAuthorFromWall(this.value)" />
+            <label style="font-size:12px;font-weight:600;">你的名字</label>
+            <input type="text" id="newNoteAuthor" class="form-control" placeholder="输入名字或昵称" oninput="syncAuthorFromWall(this.value)" />
           </div>
           <div>
             <label style="font-size:12px;font-weight:600;">选择配件</label>
@@ -1126,15 +1127,15 @@
             </select>
           </div>
           <div>
-            <label style="font-size:12px;font-weight:600;">适用送礼人群/生活场景</label>
-            <input type="text" id="newNoteScene" class="form-control" placeholder="例如：买完新手机准备结账的顾客" />
+            <label style="font-size:12px;font-weight:600;">适用人群或场景</label>
+            <input type="text" id="newNoteScene" class="form-control" placeholder="如：买完新手机结账的顾客" />
           </div>
         </div>
         <div class="form-group">
-          <label style="font-size:12px;font-weight:600;">你的推荐话术或灵感要点</label>
-          <textarea id="newNoteContent" rows="2" class="form-control" placeholder="写下你觉得最自然好用的开口方式..."></textarea>
+          <label style="font-size:12px;font-weight:600;">推荐话术或灵感</label>
+          <textarea id="newNoteContent" rows="2" class="form-control" placeholder="写下简单自然的开口方式..."></textarea>
         </div>
-        <button class="btn-primary" onclick="addManualStickyNote()">贴上云端灵感墙</button>
+        <button class="btn-primary" onclick="addManualStickyNote()">发布到灵感墙</button>
       </div>
 
       <div class="wall-controls">
@@ -1145,20 +1146,20 @@
       <div id="stickyWallContainer"></div>
     </section>
 
-    <!-- ================= MODULE 4: 实战模拟抽卡 & 总结导出 ================= -->
+    <!-- ================= MODULE 4: 常见问答与汇总 ================= -->
     <section class="module-section" id="mod3">
       <div class="section-header">
         <div>
-          <h3>模块四：顾客常见犹豫点抽卡 & 培训汇总</h3>
-          <p>随机抽取顾客在礼品季常问的犹豫点，先自己思考怎么接话，再翻开参考思路；下方可查看培训汇总表</p>
+          <h3>模块四：常见问答抽卡 & 个人汇总</h3>
+          <p>抽卡练习顾客常问问题，先想怎么接话再看参考思路；下方可查看汇总表</p>
         </div>
-        <span class="goal-pill">核心目标：带着自己的专属话术上场</span>
+        <span class="goal-pill">目标：带着话术上场</span>
       </div>
 
       <div class="flashcard-wrap">
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
-          <h4>🎲 随机快问快答：遇到顾客这样说，你怎么接？</h4>
-          <button class="btn-primary" onclick="nextObjectionCard()">随机抽下一张题卡</button>
+          <h4>🎲 快问快答：遇到顾客这样问，你怎么接？</h4>
+          <button class="btn-primary" onclick="nextObjectionCard()">抽下一题</button>
         </div>
 
         <div class="objection-box" id="objectionBox"></div>
@@ -1167,29 +1168,29 @@
       <div class="summary-card">
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
           <div>
-            <h4>📊 培训汇总表 & 行动计划</h4>
-            <p style="font-size:13px;color:var(--text-sub);">个人可直接打印或保存 PDF 速查卡；管理员验证密码后可导出全员云端 CSV 汇总表</p>
+            <h4>📊 我的汇总表 & 行动计划</h4>
+            <p style="font-size:13px;color:var(--text-sub);">个人可打印或存为 PDF；管理员可导出全员 CSV 汇总表</p>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <button class="btn-primary" onclick="requestCSVDownload()">🔒 管理员导出全员云端 CSV 更新表格</button>
-            <button class="btn-outline" onclick="window.print()">🖨 打印 / 保存 PDF 速查卡</button>
+            <button class="btn-primary" onclick="requestCSVDownload()">🔒 管理员导出 CSV</button>
+            <button class="btn-outline" onclick="window.print()">🖨 打印 / 存为 PDF</button>
           </div>
         </div>
 
         <div class="form-group" style="max-width:560px;">
-          <label>本周上场接待顾客时，我打算最先主动尝试提起哪款配件？怎么提？</label>
-          <input type="text" id="actionPlanInput" class="form-control" placeholder="例如：每次遇到买iPhone的顾客，顺口问一句车里或床头需不需要备根彩色编织线" oninput="saveActionPlan()" />
+          <label>本周接待顾客时，我打算先主动提起哪款配件？怎么提？</label>
+          <input type="text" id="actionPlanInput" class="form-control" placeholder="如：遇到买 iPhone 的顾客，顺口问车里或床头要不要备根彩色编织线" oninput="saveActionPlan()" />
         </div>
 
-        <h5 style="margin-top:20px;margin-bottom:8px;">我的五款配件思考卡完成总览</h5>
+        <h5 style="margin-top:20px;margin-bottom:8px;">我的 5 款配件思考卡</h5>
         <div style="overflow-x:auto;">
           <table class="summary-table" id="summaryTable">
             <thead>
               <tr>
-                <th>配件名称</th>
-                <th>上手体验</th>
-                <th>我想送的对象与真实生活画面</th>
-                <th>我的一句话开口话术</th>
+                <th>配件</th>
+                <th>体验进度</th>
+                <th>送礼对象与生活画面</th>
+                <th>一句话推荐话术</th>
               </tr>
             </thead>
             <tbody id="summaryTableBody"></tbody>
@@ -1202,9 +1203,9 @@
   <!-- Admin Password Modal -->
   <div class="modal-overlay" id="adminModal">
     <div class="modal-card">
-      <h4>🔒 管理员权限验证</h4>
-      <p id="adminModalDesc">请输入管理员密码以继续操作（导出全员云端 CSV、管理灵感墙或更换产品图片）</p>
-      <input type="password" id="adminPwdInput" class="form-control" placeholder="请输入管理员密码" onkeydown="if(event.key==='Enter') confirmAdminPassword()" />
+      <h4>🔒 管理员验证</h4>
+      <p id="adminModalDesc">请输入管理员密码（导出全员 CSV、管理灵感墙或换图）</p>
+      <input type="password" id="adminPwdInput" class="form-control" placeholder="输入管理员密码" onkeydown="if(event.key==='Enter') confirmAdminPassword()" />
       <div id="adminErrorMsg" style="color:var(--red);font-size:12px;margin-top:6px;display:none;">密码不正确，请重试</div>
       <div class="modal-actions">
         <button class="btn-outline" onclick="closeAdminModal()">取消</button>
@@ -1224,160 +1225,162 @@
       {
         id: "airpods5",
         name: "AirPods 5",
-        shortTag: "日常高频 · 万能体面好礼",
-        highlights: ["全天候舒适贴合耳廓", "主动降噪与通透体验", "空间音频沉浸听感", "小巧无线充电盒与查找功能"],
+        shortTag: "日常实用 · 送礼不出错",
+        highlights: ["半入耳舒适贴合", "主动降噪 + 通透", "空间音频", "充电盒支持查找"],
         handsOnTasks: [
-          "亲自试戴感受耳廓贴合度与轻盈感，对比旧款体积变化",
-          "在店里开启降噪与通透模式切换，体会嘈杂环境下的安静感",
-          "观察充电盒尺寸，想象顾客放进小口袋或随身包里的便携度"
+          "试戴感受轻巧与贴合度",
+          "切换降噪与通透模式，感受隔音效果",
+          "看充电盒大小，放口袋或小包都很方便"
         ],
-        sceneExample: "事例：写下真实的生活画面，不要只写参数（例如：表妹每天坐地铁通勤很吵，戴上它一开降噪就能安安静静听歌休息，下班路上心情都变好了）",
-        hookPrompt: "思考引导：结合对方上下班通勤、电话会议或旧耳机续航下降的场景，你会怎么用自己的话提起 AirPods 5 的舒适度或降噪体验？",
-        hint: "切入灵感：很多顾客想送礼但怕买错型号尺码，AirPods 5 几乎适合所有用苹果设备的人；即使对方有旧耳机，电池老化或升级半入耳降噪也是绝佳换新理由。"
+        sceneExample: "例：表妹每天坐地铁很吵，戴上它开降噪就能安静听歌",
+        hookPrompt: "提示：从上下班通勤、开会，或旧耳机电池不耐用切入",
+        hint: "💡 灵感：送礼怕买错尺码，选 AirPods 5 最稳妥；就算对方有旧耳机，升级半入耳降噪或换新电池也很实用。"
       },
       {
         id: "cables",
         name: "Beats / 官方编织充电线",
-        shortTag: "百搭加购 · 颜值耐用小礼",
-        highlights: ["抗缠绕耐磨编织表层", "Beats活力撞色与官方质感配色", "多长度/双接口适配车载与桌面", "小预算顺手加购无压力"],
+        shortTag: "顺手加购 · 好看又耐用",
+        highlights: ["编织线耐磨不打结", "多色可选颜值高", "多长度适配车载/桌面", "百元顺手加购"],
         handsOnTasks: [
-          "用手揉捏、弯折编织线材，感受它不易打结、耐拉扯的质感",
-          "把不同颜色的 Beats 充电线摆在一起，挑选你觉得最亮眼的一个颜色",
-          "思考自己家里、办公室、车里或充电宝上哪个位置最缺一根备用线"
+          "揉捏编织线材，感受耐拉扯、不易打结的手感",
+          "对比几款颜色，挑出最亮眼的一根",
+          "想想车里、办公桌、床头或充电宝哪儿最缺备用线"
         ],
-        sceneExample: "事例：写下真实的生活画面，不要只写参数（例如：朋友周末常开车自驾游，车里备一根亮色编织线耐拉扯又显眼，不用每次出门前去床头拔线）",
-        hookPrompt: "思考引导：结合顾客在车里、办公桌、床头或出行充电宝的使用习惯，你会怎么顺口提问，引导他多备一根彩色耐用的编织线？",
-        hint: "切入灵感：千万别把它只当成“坏了才买的配件”。年底走亲访友、租车自驾、办公桌改造，多备一根好看耐用的彩色编织线，或者作为小预算凑单礼物都非常实用。"
+        sceneExample: "例：朋友常开车自驾，车里备根亮色编织线耐拉扯又好找，不用总去床头拔线",
+        hookPrompt: "提示：顺口问问顾客车里、办公桌或充电宝需不需要多备一根线",
+        hint: "💡 灵感：充电线不是坏了才买。车里、办公桌多备一根彩色编织线，或当百元小礼物都很实用。"
       },
       {
         id: "homepod",
         name: "HomePod / HomePod mini",
-        shortTag: "居家氛围 · 聚会乔迁首选",
-        highlights: ["360度饱满环绕声场", "精致织物外观融入家居摆设", "iPhone靠近即刻接力播放", "两台可组立体声 / 全屋广播"],
+        shortTag: "居家氛围 · 乔迁聚会好礼",
+        step1Badge: "第 1 步 · 看一看",
+        step1Title: "观察与联想（完成后打勾）",
+        highlights: ["360度环绕音效", "织物外观百搭家居", "iPhone靠近接力放歌", "两台可组立体声"],
         handsOnTasks: [
-          "拿手机靠近 HomePod / mini 顶部，亲自体验一次音乐接力（Handoff）的震动与流畅感",
-          "播放一首节日感或节奏感强的歌，走动听听 360 度出声的效果",
-          "观察不同配色的织物网面，想象摆在床头柜或餐边柜的样子"
+          "看陈列或包装尺寸，想象放在床头、书桌或餐桌的样子",
+          "回顾手机靠近音箱顶上直接接力放歌、喊 Siri 定闹钟的方便体验",
+          "想象朋友聚餐、搬新家或下班回家放音乐的氛围"
         ],
-        sceneExample: "事例：写下真实的生活画面，不要只写参数（例如：闺蜜刚搬新家，周末请朋友来家里吃火锅聚餐，手机往音箱上一靠就能放歌，屋里瞬间充满节日氛围）",
-        hookPrompt: "思考引导：结合年底家庭聚会、朋友乔迁或回家放松的场景，你会怎么邀请顾客体验手机靠近接力放歌、把节日氛围带回家？",
-        hint: "切入灵感：过节家里聚餐、朋友乔迁新居、或者下班回家想放松，手机外放声音太单薄。几百块起的 HomePod mini 是把节日氛围感直接带回家的礼物。"
+        sceneExample: "例：闺蜜刚搬新家，请朋友在家吃火锅，手机往音箱上一靠就能放歌，很有过节气氛",
+        hookPrompt: "提示：现场不能试听时，用“回家手机一靠就能接着放歌、家里马上有节日氛围”来描绘画面",
+        hint: "💡 灵感：店内虽无法试听，但可以让顾客看小巧外观，描绘“回家手机一靠就放歌”的画面，几百块就能把节日氛围带回家。"
       },
       {
         id: "beats",
         name: "Beats 系列耳机",
-        shortTag: "潮流穿搭 · 跨平台运动礼",
-        highlights: ["高辨识度时尚配色与穿搭属性", "苹果与安卓手机均可一键配对", "运动稳固贴合或头戴保暖时尚", "长续航满足差旅与健身"],
+        shortTag: "潮流穿搭 · 苹果安卓通用",
+        highlights: ["配色时尚好穿搭", "苹果安卓一键配对", "运动稳固 / 头戴保暖", "长续航适合差旅健身"],
         handsOnTasks: [
-          "试戴一款头戴式（如 Solo 4 / Studio Pro）或挂耳式 Beats，照镜子看看作为穿搭单品的效果",
-          "感受头梁弹性与耳罩柔软度（秋冬季节头戴式还能兼顾户外保暖与造型）",
-          "了解它同时支持 Apple 与 Android 查找及一键配对的跨平台特性"
+          "试戴头戴式或耳塞式 Beats，照镜子看穿搭效果",
+          "感受耳罩柔软度，秋冬出门既保暖又能当配饰",
+          "记住亮点：苹果和安卓手机都能一键配对、支持查找"
         ],
-        sceneExample: "事例：写下真实的生活画面，不要只写参数（例如：男朋友冬天去健身房和日常出门穿搭，戴头戴式耳机既保暖又有造型感，还不用担心他的安卓备用机连不上）",
-        hookPrompt: "思考引导：结合秋冬穿搭拍照、运动健身，或顾客不确定收礼人用什么手机品牌的痛点，你会怎么切入推荐 Beats 耳机？",
-        hint: "切入灵感：如果顾客不知道收礼的朋友用什么手机，或者想送给喜欢健身、街舞、潮流穿搭的年轻人，Beats 配色丰富、礼盒大气，完全不用担心手机系统兼容问题。"
+        sceneExample: "例：男朋友冬天去健身房和出门穿搭，戴头戴式既保暖又好看，他的安卓备用机也能连",
+        hookPrompt: "提示：从秋冬穿搭、运动健身，或不确定收礼人用什么手机切入",
+        hint: "💡 灵感：不知道朋友用苹果还是安卓，或送礼对象爱健身、爱穿搭，推 Beats 最省心。"
       },
       {
         id: "airtag",
         name: "AirTag",
-        shortTag: "差旅防丢 · 贴心创意小礼",
-        highlights: ["全球查找网络精准定位", "精确查找箭头指引方向", "小巧轻便易挂钥匙/行李箱/宠物", "四件装可全家分用或多人送礼"],
+        shortTag: "防丢神器 · 贴心小礼物",
+        highlights: ["查找网络精准定位", "箭头指引找物方向", "易挂钥匙/行李箱/宠物", "单件/四件装灵活选"],
         handsOnTasks: [
-          "搭配一款钥匙扣或挂环拿在手里，感受挂在背包或行李箱上的质感",
-          "在查找 App 中查看精确查找界面，回忆身边找钥匙或等托运行李的场景",
-          "算一笔账：四件装拆开可以同时解决自己的钥匙、行李箱和送家人的需求"
+          "在官网看 AirTag 与钥匙扣挂环，挑一个最好看的配色搭配",
+          "打开手机「查找」App 看找物界面，回忆平时找钥匙或等托运行李的场景",
+          "想想自己和家人最容易忘带或弄丢的 3 样物品"
         ],
-        sceneExample: "事例：写下真实的生活画面，不要只写参数（例如：爸妈年底出门旅游托运行李多，在行李箱和钥匙串挂上它，一下飞机看手机就知道箱子到传送带没有）",
-        hookPrompt: "思考引导：结合年底出游托运行李、平时找钥匙背包、或四件装和家人朋友分用的场景，你会怎么自然地向顾客提起 AirTag？",
-        hint: "切入灵感：年底春运、出国旅游、冬季厚外套容易忘带钥匙。AirTag 单价亲民又有科技感，四件装自己留两个、送朋友家人两个，既有新意又解决实际痛点。"
+        sceneExample: "例：爸妈年底旅游托运行李多，挂上 AirTag 下飞机看手机就知道箱子到哪了",
+        hookPrompt: "提示：从年底出游托运行李、平时忘带钥匙，或全家出游防丢切入",
+        hint: "💡 灵感：年底旅游托运行李、冬天厚外套忘带钥匙都能用。单价亲民有新意，全家出游选四件装更划算。"
       }
     ];
 
     const PERSONAS = [
       {
         id: "p1",
-        tag: "场景 1 · 小预算百搭礼",
-        title: "公司年底 Secret Santa 交换礼物",
-        quote: "“我们部门下周搞匿名交换礼物，预算几百块以内，我不知道会抽到男同事还是女同事，也不确定对方平时用什么手机型号，有什么实用又不踩雷的推荐？”",
+        tag: "场景 1 · 百元交换礼物",
+        title: "公司年底匿名交换礼物",
+        quote: "“下周部门搞匿名换礼物，预算几百块，不知道会抽到男女同事，也不知道对方用什么手机，买什么实用不踩雷？”",
         recommended: ["Beats / 官方编织充电线", "AirTag"],
-        coachTip: "💡 启发思路：充电线人人每天都要用，Beats 彩色编织线有品牌感又有颜值，安卓苹果都能用；如果确认同事圈以 iPhone 为主，AirTag 单枚装也是极有新意的桌面/差旅防丢小礼物。"
+        coachTip: "💡 思路：Beats 彩色编织线好看耐用、苹果安卓都能用；如果同事多用 iPhone，单只 AirTag 也很有新意。"
       },
       {
         id: "p2",
-        tag: "场景 2 · 差旅与家庭年礼",
-        title: "刚买完 iPhone 主机准备结账的顾客",
-        quote: "“手机我选好了。对了，下个月过节我要带爸妈一起出门旅游，平时爸妈出门总爱忘东忘西，车上充电也总抢一根线，有什么顺手能一起带的？”",
+        tag: "场景 2 · 结账顺手加购",
+        title: "刚买完 iPhone 准备带爸妈旅游",
+        quote: "“手机选好了。下个月带爸妈出门旅游，他们总爱忘带东西，车上充电也抢一根线，有什么能顺手带的？”",
         recommended: ["AirTag", "Beats / 官方编织充电线"],
-        coachTip: "💡 启发思路：顺理成章推荐 AirTag 四件装（两个挂爸妈随身包/钥匙，两个挂托运行李箱），再顺手配 1-2 根不同颜色的编织充电线放车里或随身充电宝用，颜色区分不怕拿错。"
+        coachTip: "💡 思路：推 AirTag 四件装（挂爸妈包和行李箱），再配 1-2 根彩色编织线放车里用，不同颜色好区分。"
       },
       {
         id: "p3",
-        tag: "场景 3 · 居家与聚会氛围",
-        title: "受邀去朋友新家参加年末派对",
-        quote: "“这周末要去好朋友刚搬的新家聚餐过节，空手去不好意思，想送个能放在家里大家一起用、显品味又不会太贵重给对方压力的礼物。”",
+        tag: "场景 3 · 乔迁聚会好礼",
+        title: "周末去朋友新家聚餐",
+        quote: "“周末去好朋友新家聚餐，想送个能放家里大家一起用、有品味又不会太贵重的礼物。”",
         recommended: ["HomePod / HomePod mini"],
-        coachTip: "💡 启发思路：HomePod mini 外观像精致家居摆件，价格适中不突兀。聚餐时手机一靠就能放音乐，朋友平时做饭、休息都能用；如果预算充足还可以推荐两台组成客厅立体声。"
+        coachTip: "💡 思路：HomePod mini 像精致家居摆件，价格适中。聚餐时手机一靠就能放歌，预算足还可推两台组立体声。"
       },
       {
         id: "p4",
-        tag: "场景 4 · 伴侣与运动潮流",
-        title: "想给另一半挑节日惊喜但怕买错尺码",
-        quote: "“想给男朋友/女朋友买个过节礼物，本来想看衣服鞋子但怕尺码不合适。ta平时上下班坐地铁时间很长，周末还喜欢去健身房或者户外运动。”",
+        tag: "场景 4 · 送另一半礼物",
+        title: "给伴侣挑礼物怕买错尺码",
+        quote: "“想给男/女朋友买过节礼物，买衣服鞋子怕尺码不对。Ta 每天坐地铁很久，周末喜欢去健身房运动。”",
         recommended: ["AirPods 5", "Beats 系列耳机"],
-        coachTip: "💡 启发思路：引导顾客对比佩戴偏好：如果喜欢无感轻便、全天戴着通勤办公，选 AirPods 5；如果喜欢健身房运动稳固或秋冬头戴式穿搭造型，选 Beats 系列耳机。"
+        coachTip: "💡 思路：喜欢轻便无感、通勤全天戴选 AirPods 5；喜欢健身稳固或秋冬头戴穿搭选 Beats。"
       },
       {
         id: "p5",
-        tag: "场景 5 · 跨平台送朋友",
-        title: "不确定收礼人手机品牌的年轻顾客",
-        quote: "“我想送外地好闺蜜/室友一个生日兼圣诞礼物，她平时很喜欢听歌和拍照穿搭，但我只知道她好像有一台 iPad，手机不确定是不是苹果的。”",
+        tag: "场景 5 · 跨品牌送朋友",
+        title: "不确定好朋友用什么手机",
+        quote: "“想送外地闺蜜圣诞礼物，她喜欢听歌和拍照穿搭，只知道她有 iPad，不确定手机是不是苹果。”",
         recommended: ["Beats 系列耳机", "Beats / 官方编织充电线"],
-        coachTip: "💡 启发思路：Beats 系列耳机天生支持苹果和安卓双平台一键配对，加上时尚配色特别适合拍照穿搭（OOTD），再配一根同色系 Beats 编织线，礼盒感直接拉满。"
+        coachTip: "💡 思路：Beats 耳机苹果安卓都能一键配对，配色潮、拍照好看，再搭一根同色系充电线更有礼盒感。"
       },
       {
         id: "p6",
-        tag: "场景 6 · 犒劳自己与全家升级",
-        title: "年底发奖金想提升生活幸福感的顾客",
-        quote: "“忙了一整年，想买点东西犒劳下自己和家里人，希望平时在家休息或者上下班路上能舒服一点，有什么幸福感高的配件组合？”",
+        tag: "场景 6 · 年底犒劳自己",
+        title: "发奖金想提升生活幸福感",
+        quote: "“忙了一年想买点东西犒劳自己和家人，让上下班路上和在家休息更舒服，有什么推荐组合？”",
         recommended: ["AirPods 5", "HomePod / HomePod mini"],
-        coachTip: "💡 启发思路：打造“全天候音乐生活组合”：通勤路上用 AirPods 5 降噪隔绝喧嚣，回到家手机往 HomePod 上一靠，音乐无缝接力到客厅，瞬间切换休息状态。"
+        coachTip: "💡 思路：通勤用 AirPods 5 降噪安静听歌，回家手机往 HomePod 上一靠，音乐接力到客厅放松休息。"
       }
     ];
 
     const OBJECTIONS = [
       {
-        q: "顾客说：“充电线网上十几块钱一根到处都是，为什么要买官方编织线或 Beats 充电线？”",
+        q: "顾客：“网上充电线十几块一根，为什么要买官方或 Beats 编织线？”",
         a: [
-          "角度1（耐用与安全）：普通塑料线用几个月接头容易开裂，编织线抗拉扯不打结，算下来一根能顶好几根用，给昂贵的新手机充电也更安心。",
-          "角度2（场景与颜值）：Beats 充电线有亮眼配色，放在车里或办公桌上不仅好看，一眼就能认出自己的线，作为顺手送人的小礼物也很有质感。"
+          "耐用安全：普通塑料线容易裂，编织线耐拉扯不打结，一根顶几根，充新手机更放心。",
+          "颜值高好认：亮眼配色放车里或桌上好看又好找，顺手送人也有质感。"
         ]
       },
       {
-        q: "顾客说：“AirTag 就这么一个小圆片，直接拿来送人会不会显得太单薄了？”",
+        q: "顾客：“AirTag 就这么小一个圆片，送人会不会太单薄？”",
         a: [
-          "角度1（场景化包装）：给它赋予一个具体故事，比如配个多彩钥匙扣，跟朋友说“知道你年底常出差/刚养了小狗，送你个安心小保镖”，心意立刻不一样。",
-          "角度2（四件装分享）：推荐买四件装，跟家人朋友一人分一个挂行李箱或钥匙，既有互动感又实用。"
+          "加个小故事：配个好看的钥匙扣，跟朋友说“知道你常出差/刚养宠物，送你个防丢小保镖”，心意一下就满了。",
+          "四件装分着用：买四件装跟家人朋友一人分一个挂行李箱或钥匙，实用又有互动感。"
         ]
       },
       {
-        q: "顾客说：“HomePod mini 看着跟拳头一样小，买回家声音够用吗？跟普通蓝牙音箱有什么区别？”",
+        q: "顾客：“HomePod mini 只有拳头大，声音够吗？跟普通蓝牙音箱有啥区别？”",
         a: [
-          "角度1（现场接力体验）：直接邀请顾客拿手机靠近试一次 Handoff 接力，告诉他不用每次繁琐连蓝牙，回家顺手一靠音乐就出来，还能随时喊 Siri 定闹钟查天气。",
-          "角度2（声场与组合）：360 度发声放在房间任何角落听感都很饱满，以后还可以再添置一台组成左右声道立体声。"
+          "靠近直接接力：不用每次手动连蓝牙，回家手机往音箱顶上一靠就接着放歌，还能喊 Siri 定闹钟、查天气。",
+          "小身材大音量：360 度发声放房间哪都饱满，以后还能再加一台组立体声。"
         ]
       },
       {
-        q: "顾客说：“对方好像已经有一副旧 AirPods 了，再送 AirPods 5 会不会重复？”",
+        q: "顾客：“对方已经有旧 AirPods 了，再送 AirPods 5 会不会重复？”",
         a: [
-          "角度1（半入耳降噪跨代升级）：以前很多人喜欢半入耳的舒适但遗憾没有降噪，AirPods 5 首次在半入耳上做到主动降噪，坐地铁和办公体验完全不同。",
-          "角度2（电池续航换新）：耳机是每天高频使用的消耗品，用了一两年的旧耳机往往续航明显缩水，过节送一副全新续航的耳机非常贴心实用。"
+          "升级半入耳降噪：很多人喜欢半入耳的舒服但想要降噪，AirPods 5 新增主动降噪，坐地铁体验完全不同。",
+          "换新电池续航：耳机天天用，一两年后电池容易衰减，换副新耳机每天都能用上。"
         ]
       },
       {
-        q: "顾客说：“我想送耳机给朋友，但不确定他平时用苹果还是安卓手机，而且怕入耳式他戴着不舒服怎么办？”",
+        q: "顾客：“不知道朋友用苹果还是安卓，又怕入耳式戴着不舒服怎么办？”",
         a: [
-          "角度1（跨平台无忧）：Beats 系列耳机同时支持苹果和安卓一键配对与查找功能，不用提前套话问对方用什么手机。",
-          "角度2（穿搭与佩戴选择）：如果不习惯入耳式，可以选择头戴式（如 Solo 4 / Studio Pro），秋冬出门既保暖又能当穿搭单品。"
+          "苹果安卓通用：Beats 支持苹果和安卓一键配对和查找，不用提前问对方用什么手机。",
+          "头戴式舒服百搭：怕入耳式不舒服可选头戴式（Solo 4 / Studio Pro），冬天出门保暖又好看。"
         ]
       }
     ];
@@ -1405,7 +1408,7 @@
       personaInputs: {},
       stickyNotes: [],
       deletedNoteIds: [],
-      cloudSubmissions: {}, // All colleagues' submissions synced across devices
+      cloudSubmissions: {},
       currentObjectionIdx: 0,
       objectionRevealed: false
     };
@@ -1481,7 +1484,6 @@
     }
 
     async function fetchCloudData() {
-      // Try primary textdb first, fallback to restful-api
       try {
         const res = await fetch(CLOUD_TEXTDB_URL + "?t=" + Date.now(), { method: "GET" });
         if (res.ok) {
@@ -1505,12 +1507,10 @@
     function mergeCloudState(cloudData) {
       if (!cloudData || typeof cloudData !== "object") return;
 
-      // Merge deleted note IDs
       const cloudDeleted = Array.isArray(cloudData.deletedNoteIds) ? cloudData.deletedNoteIds : [];
       const mergedDeletedSet = new Set([...(state.deletedNoteIds || []), ...cloudDeleted]);
       state.deletedNoteIds = Array.from(mergedDeletedSet);
 
-      // Merge sticky notes by id
       const cloudNotes = Array.isArray(cloudData.stickyNotes) ? cloudData.stickyNotes : [];
       const noteMap = new Map();
 
@@ -1532,7 +1532,6 @@
       const mergedNotes = Array.from(noteMap.values()).sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
       state.stickyNotes = mergedNotes;
 
-      // Merge participant submissions across all devices
       const cloudSubs = (cloudData.submissions && typeof cloudData.submissions === "object") ? cloudData.submissions : {};
       const mergedSubs = { ...cloudSubs, ...(state.cloudSubmissions || {}) };
       Object.keys(cloudSubs).forEach(devKey => {
@@ -1552,15 +1551,15 @@
     async function pullFromCloud(manualFlag = false) {
       if (cloudSyncInProgress) return;
       cloudSyncInProgress = true;
-      setCloudStatusUI("syncing", "正在同步云端...");
+      setCloudStatusUI("syncing", "同步中...");
       try {
         const cloudData = await fetchCloudData();
         if (cloudData) {
           mergeCloudState(cloudData);
-          setCloudStatusUI("ok", `云端已同步 (${state.stickyNotes.length}条灵感)`);
+          setCloudStatusUI("ok", `已同步 (${state.stickyNotes.length}条)`);
           if (manualFlag) showToast("已同步最新云端灵感👌");
         } else {
-          setCloudStatusUI("ok", "云端实时互通中");
+          setCloudStatusUI("ok", "云端实时同步");
         }
       } catch (e) {
         setCloudStatusUI("ok", "本地已保存");
@@ -1571,7 +1570,7 @@
 
     async function pushToCloud() {
       updateLocalSubmissionRecord();
-      setCloudStatusUI("syncing", "正在上传云端...");
+      setCloudStatusUI("syncing", "上传中...");
       try {
         const latestCloud = await fetchCloudData();
         if (latestCloud) {
@@ -1586,7 +1585,6 @@
         };
         const jsonStr = JSON.stringify(payload);
 
-        // Save to primary & backup cloud stores in parallel
         await Promise.allSettled([
           fetch(CLOUD_TEXTDB_URL, {
             method: "POST",
@@ -1604,17 +1602,15 @@
           })
         ]);
 
-        setCloudStatusUI("ok", `云端已同步 (${state.stickyNotes.length}条灵感)`);
+        setCloudStatusUI("ok", `已同步 (${state.stickyNotes.length}条)`);
       } catch (e) {
-        setCloudStatusUI("ok", "已保存至本机");
+        setCloudStatusUI("ok", "已存本机");
       }
     }
 
     function initRealtimeCloudListener() {
-      // Initial pull
       pullFromCloud(false);
 
-      // Listen to real-time SSE broadcasts via ntfy.sh
       try {
         const es = new EventSource(CLOUD_NTFY_TOPIC + "/sse");
         es.onmessage = function(evt) {
@@ -1630,7 +1626,6 @@
         };
       } catch (e) {}
 
-      // Periodic background poll every 10s
       setInterval(() => {
         pullFromCloud(false);
       }, 10000);
@@ -1672,7 +1667,7 @@
         state.participantName = val;
         return val;
       }
-      showToast("请先填写你的名字或昵称，方便灵感墙展示来自哪位同事");
+      showToast("请先输入你的名字或昵称");
       if (state.activeTab === 2 && wallInput) {
         wallInput.focus();
       } else if (topInput) {
@@ -1691,7 +1686,7 @@
     function openAdminModal(action) {
       if (isAdminUnlocked) {
         if (action === "csv") executeExportCSV();
-        else showToast("当前已处于管理员模式👌");
+        else showToast("已处于管理员模式👌");
         return;
       }
       pendingAdminAction = action;
@@ -1711,12 +1706,12 @@
       if (val === ADMIN_PASSWORD) {
         isAdminUnlocked = true;
         const btn = document.getElementById("adminStatusBtn");
-        btn.textContent = "🔓 管理员已解锁 (Lynn)";
+        btn.textContent = "🔓 管理员 (Lynn)";
         btn.classList.add("unlocked");
         closeAdminModal();
         renderModule1();
         if (state.activeTab === 2) renderStickyWall();
-        showToast("管理员验证通过👌");
+        showToast("管理员已解锁👌");
         if (pendingAdminAction === "csv") {
           executeExportCSV();
         }
@@ -1757,7 +1752,7 @@
         state.productImages[uploadingProductId] = e.target.result;
         saveState(false, false);
         renderModule1();
-        showToast("产品图片已更新👌");
+        showToast("图片已更新👌");
       };
       reader.readAsDataURL(file);
       event.target.value = "";
@@ -1825,16 +1820,16 @@
               ${getProductVisualHTML(p.id)}
             </div>
             <div class="workbench-title">
-              <h4>${p.name} · 3步体验与思考卡</h4>
+              <h4>${p.name}</h4>
               <div class="highlight-chips">
                 ${p.highlights.map(h => `<span class="chip">✦ ${h}</span>`).join("")}
               </div>
-              ${isAdminUnlocked ? `<div style="margin-top:6px;"><button class="admin-pill" onclick="triggerUploadImage('${p.id}')">🖼 更换此产品图片</button></div>` : ""}
+              ${isAdminUnlocked ? `<div style="margin-top:6px;"><button class="admin-pill" onclick="triggerUploadImage('${p.id}')">🖼 更换图片</button></div>` : ""}
             </div>
           </div>
           <div>
             <button class="btn-primary" onclick="saveProductReflection('${p.id}')">
-              💾 保存思考卡并同步到云端灵感墙
+              💾 保存并同步到灵感墙
             </button>
           </div>
         </div>
@@ -1842,8 +1837,8 @@
         <div class="steps-grid">
           <!-- Step 1 -->
           <div class="step-box">
-            <span class="step-num">第 1 步 · 上手试</span>
-            <h5>亲自体验与观察（勾选已完成项）</h5>
+            <span class="step-num">${p.step1Badge || "第 1 步 · 试一试"}</span>
+            <h5>${p.step1Title || "体验要点（完成后打勾）"}</h5>
             ${p.handsOnTasks.map((task, idx) => `
               <label class="checklist-item">
                 <input type="checkbox" ${pState.checks[idx] ? "checked" : ""} onchange="toggleProdCheck('${p.id}', ${idx}, this.checked)" />
@@ -1857,40 +1852,40 @@
 
           <!-- Step 2 -->
           <div class="step-box">
-            <span class="step-num">第 2 步 · 想场景</span>
-            <h5>换位思考：写下真实的生活画面，不要只写参数</h5>
+            <span class="step-num">第 2 步 · 想画面</span>
+            <h5>想一个送礼的生活画面</h5>
             <div class="form-group">
-              <label>如果今年过节送给你身边的一个人，你会送给谁？</label>
-              <input type="text" class="form-control" placeholder="例如：经常出差的表哥 / 刚搬新家的闺蜜 / 爸妈"
+              <label>今年过节，你想把它送给谁？</label>
+              <input type="text" class="form-control" placeholder="如：常出差的表哥 / 刚搬家的闺蜜 / 爸妈"
                 value="${escapeHtml(pState.targetWho)}"
                 oninput="updateProdField('${p.id}', 'targetWho', this.value)" />
             </div>
             <div class="form-group">
-              <label>真实生活画面描述（不要只写参数）：</label>
+              <label>Ta 平时在什么场景下会用？（写生活画面，不写参数）</label>
               <div class="scene-rule-tip">${p.sceneExample}</div>
-              <textarea rows="3" class="form-control" placeholder="写下真实的生活画面，不要只写参数..."
+              <textarea rows="3" class="form-control" placeholder="写下具体生活场景..."
                 oninput="updateProdField('${p.id}', 'targetPain', this.value)">${escapeHtml(pState.targetPain)}</textarea>
             </div>
           </div>
 
           <!-- Step 3 -->
           <div class="step-box">
-            <span class="step-num">第 3 步 · 留灵感</span>
-            <h5>提炼一句跟顾客自然开口的话</h5>
+            <span class="step-num">第 3 步 · 写话术</span>
+            <h5>用一句话向顾客推荐</h5>
             <div class="form-group">
-              <label>当顾客在看礼品或准备结账时，你会怎么一句话提起它？</label>
+              <label>顾客挑礼物或结账时，你怎么自然提起它？</label>
               <div class="scene-rule-tip">${p.hookPrompt}</div>
-              <textarea rows="4" class="form-control" placeholder="请结合上方思考方向，用你平时接待顾客最自然的语气写下一句话..."
+              <textarea rows="4" class="form-control" placeholder="用你平时最自然的语气写下一句话..."
                 oninput="updateProdField('${p.id}', 'hookLine', this.value)">${escapeHtml(pState.hookLine)}</textarea>
             </div>
             <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-top:12px;">
               <button class="btn-primary" style="padding:8px 16px;font-size:13px;" onclick="saveProductReflection('${p.id}')">
-                ${pState.saved ? "✓ 已同步灵感墙（点击更新）" : "💾 保存并同步到灵感墙"}
+                ${pState.saved ? "✓ 已同步（点击更新）" : "💾 保存并同步"}
               </button>
               ${state.activeProductIndex < PRODUCTS.length - 1 ? `
                 <button class="btn-outline" style="padding:8px 14px;font-size:13px;" onclick="saveAndNextProduct('${p.id}', ${state.activeProductIndex + 1})">下一个配件 →</button>
               ` : `
-                <button class="btn-outline" style="padding:8px 14px;font-size:13px;" onclick="saveAndGoModule2('${p.id}')">进入顾客画像配对 →</button>
+                <button class="btn-outline" style="padding:8px 14px;font-size:13px;" onclick="saveAndGoModule2('${p.id}')">进入场景配对 →</button>
               `}
             </div>
           </div>
@@ -1925,7 +1920,7 @@
       const p = PRODUCTS.find(x => x.id === pid);
       const d = state.productInputs[pid];
       if (!d.hookLine.trim() && !d.targetPain.trim()) {
-        if (!silentIfEmpty) showToast("请先填写第2步或第3步的想法哦");
+        if (!silentIfEmpty) showToast("请先填写第2步或第3步");
         return false;
       }
       const authorName = ensureParticipantName();
@@ -1934,9 +1929,9 @@
       const colors = ["note-yellow", "note-blue", "note-green", "note-purple", "note-orange"];
       const noteContent = [
         d.targetPain.trim() ? `【生活画面】${d.targetPain.trim()}` : "",
-        d.hookLine.trim() ? `【开口话术】${d.hookLine.trim()}` : ""
+        d.hookLine.trim() ? `【推荐话术】${d.hookLine.trim()}` : ""
       ].filter(Boolean).join("\n");
-      const sceneText = d.targetWho.trim() ? `送给：${d.targetWho.trim()}` : "日常接待推荐";
+      const sceneText = d.targetWho.trim() ? `送给：${d.targetWho.trim()}` : "日常推荐";
 
       const noteId = `note_${state.deviceId}_${pid}`;
       const existingIdx = state.stickyNotes.findIndex(x => x.id === noteId);
@@ -1964,7 +1959,7 @@
       d.saved = true;
       saveState(false, true);
       renderModule1();
-      showToast("已保存并同步到云端【灵感便利贴墙】👌");
+      showToast("已同步到团队灵感墙👌");
       return true;
     }
 
@@ -2003,14 +1998,14 @@
               <div class="persona-header">
                 <span class="persona-tag">${per.tag}</span>
                 <span style="font-size:13px;font-weight:600;color:${pData.completed ? "var(--green)" : "var(--text-sub)"};">
-                  ${pData.completed ? "✓ 已完成配对" : "待配对"}
+                  ${pData.completed ? "✓ 已完成" : "待配对"}
                 </span>
               </div>
               <h4 style="font-size:17px;">${per.title}</h4>
               <div class="persona-quote">${per.quote}</div>
 
               <div class="form-group">
-                <label>1. 点击选择你会推荐给这位顾客的配件（可多选主推+加购）：</label>
+                <label>1. 选择推荐配件（可多选）：</label>
                 <div class="acc-pills">
                   ${ALL_ACC_NAMES.map(acc => {
                     const sel = pData.selectedProducts.includes(acc);
@@ -2020,15 +2015,15 @@
               </div>
 
               <div class="form-group">
-                <label>2. 写下你的第一句提问或推荐理由：</label>
-                <textarea rows="2" class="form-control" placeholder="你会怎么回应这位顾客？"
+                <label>2. 写下你的第一句推荐话术：</label>
+                <textarea rows="2" class="form-control" placeholder="你会怎么跟这位顾客说？"
                   oninput="updatePersonaQuestion('${per.id}', this.value)">${escapeHtml(pData.question)}</textarea>
               </div>
             </div>
 
             <div>
               <button class="btn-primary" style="width:100%;justify-content:center;" onclick="completePersona('${per.id}')">
-                ${pData.completed ? "更新答案 & 同步云端" : "提交配对 & 揭晓参考思路"}
+                ${pData.completed ? "更新答案" : "提交并看参考思路"}
               </button>
 
               <div class="reveal-panel ${pData.completed ? "show" : ""}" id="reveal_${per.id}">
@@ -2058,11 +2053,11 @@
     function completePersona(perId) {
       const pData = state.personaInputs[perId];
       if (pData.selectedProducts.length === 0) {
-        showToast("请至少点选 1 款推荐配件");
+        showToast("请至少选 1 款配件");
         return;
       }
       if (!pData.question || pData.question.trim() === "") {
-        showToast("请先写下一句你的提问或推荐理由，再揭晓参考思路");
+        showToast("请先写下一句推荐话术");
         return;
       }
       const authorName = ensureParticipantName();
@@ -2095,7 +2090,7 @@
       }
       saveState(false, true);
       renderModule2();
-      showToast("配对完成，已同步到云端灵感墙👌");
+      showToast("已同步到团队灵感墙👌");
     }
 
     // ================= MODULE 3 RENDER (STICKY WALL - CLOUD SYNCED) =================
@@ -2111,7 +2106,7 @@
       const adminCtrl = document.getElementById("adminWallControls");
       if (adminCtrl) {
         adminCtrl.innerHTML = isAdminUnlocked && state.stickyNotes.length > 0
-          ? `<button class="admin-pill" style="color:var(--red);border-color:var(--red);" onclick="clearAllCloudNotes()">🗑 清空云端测试便利贴</button>`
+          ? `<button class="admin-pill" style="color:var(--red);border-color:var(--red);" onclick="clearAllCloudNotes()">🗑 清空灵感墙</button>`
           : "";
       }
 
@@ -2124,8 +2119,8 @@
       if (list.length === 0) {
         container.innerHTML = `
           <div class="empty-wall-box">
-            <h4>✨ 云端灵感便利贴墙等待第一张分享</h4>
-            <p>当任何同事在【模块一】保存思考卡、在【模块二】提交画像配对，或在上方直接发布内容后，所有设备的真实灵感都会实时呈现在这里。</p>
+            <h4>✨ 灵感墙等待第一张分享</h4>
+            <p>在模块一保存思考卡、模块二提交配对，或在上方直接发布，内容都会实时显示在这里。</p>
           </div>
         `;
         return;
@@ -2144,8 +2139,8 @@
                 <div class="sticky-body">${escapeHtml(n.content)}</div>
               </div>
               <div class="sticky-footer">
-                <span style="font-weight:600;color:#1d1d1f;">💡 灵感来自：${escapeHtml(n.author || "未署名")}</span>
-                <button class="like-btn" onclick="likeStickyNote('${n.id}')">👍 有启发 (${n.likes || 0})</button>
+                <span style="font-weight:600;color:#1d1d1f;">💡 来自：${escapeHtml(n.author || "未署名")}</span>
+                <button class="like-btn" onclick="likeStickyNote('${n.id}')">👍 赞 (${n.likes || 0})</button>
               </div>
             </div>
           `).join("")}
@@ -2162,10 +2157,10 @@
       const authorName = ensureParticipantName();
       if (!authorName) return;
       const prod = document.getElementById("newNoteProduct").value;
-      const scene = document.getElementById("newNoteScene").value.trim() || "日常送礼推荐";
+      const scene = document.getElementById("newNoteScene").value.trim() || "日常推荐";
       const content = document.getElementById("newNoteContent").value.trim();
       if (!content) {
-        showToast("请先输入你的推荐话术或灵感");
+        showToast("请先输入推荐话术或灵感");
         return;
       }
       const colors = ["note-yellow", "note-blue", "note-green", "note-purple", "note-orange"];
@@ -2183,7 +2178,7 @@
       document.getElementById("newNoteContent").value = "";
       saveState(false, true);
       renderStickyWall();
-      showToast("已发布到云端灵感墙👌");
+      showToast("已发布到灵感墙👌");
     }
 
     function likeStickyNote(id) {
@@ -2201,7 +2196,7 @@
       state.stickyNotes = state.stickyNotes.filter(x => x.id !== id);
       saveState(false, true);
       renderStickyWall();
-      showToast("已删除该便利贴👌");
+      showToast("已删除👌");
     }
 
     function clearAllCloudNotes() {
@@ -2210,7 +2205,7 @@
       state.stickyNotes = [];
       saveState(false, true);
       renderStickyWall();
-      showToast("已清空云端便利贴👌");
+      showToast("已清空灵感墙👌");
     }
 
     // ================= MODULE 4 RENDER (ROLEPLAY & SUMMARY) =================
@@ -2219,12 +2214,12 @@
       const box = document.getElementById("objectionBox");
       box.innerHTML = `
         <div style="font-size:12px;color:var(--accent);font-weight:600;margin-bottom:6px;">
-          演练题卡 ${state.currentObjectionIdx + 1} / ${OBJECTIONS.length}
+          问题 ${state.currentObjectionIdx + 1} / ${OBJECTIONS.length}
         </div>
         <h4>${item.q}</h4>
-        <p style="font-size:13px;color:var(--text-sub);margin-bottom:14px;">先在心里或轻声试着接一句话，再点击下方查看参考切入角度</p>
+        <p style="font-size:13px;color:var(--text-sub);margin-bottom:14px;">先想一想怎么回答，再点击查看参考思路</p>
         <button class="btn-outline" onclick="toggleObjectionAnswer()">
-          ${state.objectionRevealed ? "隐藏参考角度" : "👀 翻开查看参考应对角度"}
+          ${state.objectionRevealed ? "收起参考思路" : "👀 查看参考思路"}
         </button>
         ${state.objectionRevealed ? `
           <div style="margin-top:14px;background:#fff;padding:14px;border-radius:10px;border:1px solid var(--border);">
@@ -2254,7 +2249,7 @@
         return `
           <tr>
             <td><strong>${p.name}</strong></td>
-            <td>已完成 ${checkCount}/3 项</td>
+            <td>已完成 ${checkCount}/3</td>
             <td>${escapeHtml(d.targetWho ? `${d.targetWho}（${d.targetPain}）` : d.targetPain || "未填写")}</td>
             <td>${escapeHtml(d.hookLine || "未填写")}</td>
           </tr>
@@ -2267,13 +2262,11 @@
       updateLocalSubmissionRecord();
 
       const rows = [
-        ["参与人", "数据类别", "配件/场景名称", "送礼对象与真实生活画面/配对选择", "推荐话术与灵感记录", "获赞数"]
+        ["参与人", "类别", "配件/场景", "对象与生活画面/所选配件", "推荐话术与灵感", "获赞数"]
       ];
 
-      // 1. Export all synced participant submissions across devices
       const allSubs = Object.values(state.cloudSubmissions || {});
       if (allSubs.length === 0) {
-        // Fallback to current local device if no cloud submissions yet
         allSubs.push({
           participantName: state.participantName || "未署名",
           actionPlan: state.actionPlan,
@@ -2289,7 +2282,7 @@
           if (d.targetWho || d.targetPain || d.hookLine) {
             rows.push([
               user,
-              "实物思考卡",
+              "思考卡",
               p.name,
               `${d.targetWho || ""} ${d.targetPain || ""}`.trim(),
               d.hookLine || "",
@@ -2303,7 +2296,7 @@
           if ((pd.selectedProducts && pd.selectedProducts.length > 0) || pd.question) {
             rows.push([
               user,
-              "顾客画像配对",
+              "场景配对",
               per.title,
               (pd.selectedProducts || []).join(" + "),
               pd.question || "",
@@ -2313,15 +2306,14 @@
         });
 
         if (sub.actionPlan) {
-          rows.push([user, "上场行动计划", "本周首选动作", "", sub.actionPlan, ""]);
+          rows.push([user, "行动计划", "本周首选动作", "", sub.actionPlan, ""]);
         }
       });
 
-      // 2. Export all shared sticky notes on the cloud wall
       state.stickyNotes.forEach(n => {
         rows.push([
           n.author || "同事分享",
-          "云端灵感便利贴墙",
+          "团队灵感墙",
           n.product,
           n.scene,
           n.content,
@@ -2334,11 +2326,11 @@
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `礼品季配件全员云端培训汇总_${new Date().toISOString().slice(0, 10)}.csv`;
+      a.download = `礼品季配件培训汇总_${new Date().toISOString().slice(0, 10)}.csv`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      showToast("已导出全员云端 CSV 表格👌");
+      showToast("已导出全员 CSV 表格👌");
     }
 
     function escapeHtml(str) {
